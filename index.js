@@ -86,7 +86,7 @@ place++;
 }
 
 bot.on('ready', () => {
-setInterval(changeColor, config.speed);
+setInterval( changeColor, config.speed );
 })
 
-bot.login(process.env.token); // token to change bot configuration
+bot.login( process.env.token ); // token to change bot configuration
