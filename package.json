@@ -24,6 +24,6 @@
   ],
   "bot_controller": "rainbow",
   "colors": 40,
-  "speed": 60,
+  "speed": 20,
   "prefix": "!"
 }
