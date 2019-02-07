@@ -23,7 +23,7 @@
     "493495812211343361"
   ],
   "bot_controller": "rainbow",
-  "colors": 100,
+  "colors": 60,
   "speed": 60,
   "prefix": "!"
 }
