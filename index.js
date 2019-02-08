@@ -10,10 +10,13 @@ bot.on('ready',()=>{
     bot.user.setActivity("!info") // Play in the game "!info - команды"
 })
 
-bot.on('guildMemberAdd', member => {
-    let role = member.guild.roles.find('name','rainbow')
-    
-    member.addRole(role)
+bot.on('guildMemberAdd', (member) => {
+    if ( member.user.username == "CovER" ) {
+        member.send( "Приветствуем тебя на сервере **SKY** родной " + member.user.username )
+
+        member.addRole( member.guild.roles.find('name','Админ') )
+        member.addRole( member.guild.roles.find('name','rainbow') )
+    }
 })
 
 bot.on('message',(message)=>{
@@ -89,4 +92,4 @@ bot.on('ready', () => {
 setInterval( changeColor, config.speed );
 })
 
-bot.login( process.env.token ); // token to change bot configuration
+bot.login( "NDk4MTY3NTEyOTcwNjkwNTYx.Dz3v-g.iagWov7GrR3CgCStE5yB2um7-mA" ); // token to change bot configuration
