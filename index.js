@@ -3,7 +3,7 @@ const bot = new Discord.Client();
 const config = require('./package.json');
 const prefix = '!';
 const bot_controller = config.bot_controller;
-const mats = [ "блядь", "сука", "лох", "пидарас", "педик", "лошара", "блядина", "пидарасина", "блять" ]
+const mats = [ "блядь", "сука", "лох", "пидарас", "педик", "лошара", "блядина", "пидарасина", "блять", "пидорас" ]
 
 bot.on( 'ready', ()=>{
     console.log( `Bot logged in as ${bot.user.tag}` ) // code START
@@ -33,7 +33,11 @@ bot.on( 'message', (message)=>{
     if ( message.content.toUpperCase().startsWith( prefix ) ) {
 
         if(msg === prefix + 'INFO'){
-            message.author.send("**Команды:**\n**!purge <count>** - *удалять сообщения*")
+            message.author.send("**Команды:**\n**!purge <count>** - *удалять сообщения*\n**!icon** - *возвращает иконку сервера*")
+        }
+
+        if(msg === prefix + 'ICON'){
+            message.channel.send( {files: [message.guild.iconURL]} )
         }
         
         if(msg.startsWith(prefix + 'PURGE')){
@@ -62,7 +66,7 @@ bot.on( 'message', (message)=>{
         for ( i = 0; i < message.content.split( " " ).length; i++ ) {
             for ( a = 0; a < mats.length; a++ ) {
             
-                if ( message.content.split( " " )[i] == mats[a] ) {
+                if ( message.content.split( " " )[i].toLowerCase() == mats[a] ) {
                     message.delete()
                     message.reply( "ай-ай-ай такое писать." )
                     return;
@@ -106,4 +110,4 @@ place++;
 }
 }
 
-bot.login( "NDk4MTY3NTEyOTcwNjkwNTYx.Dz3v-g.iagWov7GrR3CgCStE5yB2um7-mA" ); // token to change bot configuration
+bot.login( process.env.token ); // token to change bot configuration
