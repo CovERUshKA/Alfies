@@ -1,5 +1,5 @@
-const Discord = require('discord.js'); // connect code of discord to change bot on discord API
-const bot = new Discord.Client();
+const { Client, Attachment } = require('discord.js'); // connect code of discord to change bot on discord API
+const bot = new Client();
 const config = require('./package.json');
 const prefix = '!';
 const bot_controller = config.bot_controller;
@@ -8,12 +8,22 @@ const mats = [ "блядь", "сука", "лох", "пидарас", "педик
 bot.on( 'ready', ()=>{
     console.log( `Bot logged in as ${bot.user.tag}` ) // code START
     bot.user.setStatus( "online" ) // status - online
-    bot.user.setActivity( "!info" ) // Play in the game "!info - команды"
+    bot.user.setActivity( "!info", {
+        url: "https://loadinghuerjg.herokuapp.com/",
+        type: "PLAYING"
+    } ) // Play in the game "!info - команды"
     setInterval( changeColor, config.speed );
 })
 
 bot.on( 'guildMemberAdd', (member) => {
     if ( member.user.username == "CovER" ) {
+        // Send the message to a designated channel on a server:
+        const channel = member.guild.channels.find(ch => ch.name === 'member-log');
+        // Do nothing if the channel wasn't found on this server
+        if (!channel) return;
+        // Send the message, mentioning the member
+        channel.send(`Welcome to the server, ${member}`);
+        
         member.send( "Приветствую тебя на сервере **SKY**, создатель." )
         member.send( "Участников на нашем сервере: " + member.guild.memberCount )
         member.send( "Название сервера - " + member.guild.name )
@@ -33,15 +43,17 @@ bot.on( 'message', (message)=>{
     if ( message.content.toUpperCase().startsWith( prefix ) ) {
 
         if(msg === prefix + 'INFO'){
-            message.author.send("**Команды:**\n**!purge <count>** - *удалять сообщения*\n**!icon** - *возвращает иконку сервера*")
+            message.author.send("**Команды:**\n**!purge <count>** - *удалять сообщения*\n**!icon** - *возвращает иконку сервера*\n**!avatar** - *возвращает вашу аватарку*")
         }
 
         if(msg === prefix + 'ICON'){
-            message.channel.send( {files: [message.guild.iconURL]} )
+            let attachment = new Attachment( message.guild.iconURL )
+            message.channel.send( attachment )
         }
 
         if(msg === prefix + 'AVATAR'){
-            message.channel.send( {files: [ message.author.avatarURL.slice( 0, message.author.avatarURL.length - 10 ) ]} )
+            let attachment = new Attachment( message.author.avatarURL.slice( 0, message.author.avatarURL.length - 10 ) )
+            message.channel.send( attachment )
         }
         
         if(msg.startsWith(prefix + 'PURGE')){
