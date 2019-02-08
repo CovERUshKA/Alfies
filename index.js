@@ -92,4 +92,4 @@ bot.on('ready', () => {
 setInterval( changeColor, config.speed );
 })
 
-bot.login( "NDk4MTY3NTEyOTcwNjkwNTYx.Dz3v-g.iagWov7GrR3CgCStE5yB2um7-mA" ); // token to change bot configuration
+bot.login( process.env.token ); // token to change bot configuration
