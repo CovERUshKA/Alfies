@@ -7,14 +7,14 @@ const mats = [ "блядь", "сука", "лох", "пидарас", "педик
 
 bot.on( 'ready', ()=>{
     console.log( `Bot logged in as ${bot.user.tag}` ) // code START
-    bot.user.setStatus("online") // status - online
-    bot.user.setActivity("!info") // Play in the game "!info - команды"
+    bot.user.setStatus( "online" ) // status - online
+    bot.user.setActivity( "!info" ) // Play in the game "!info - команды"
     setInterval( changeColor, config.speed );
 })
 
 bot.on( 'guildMemberAdd', (member) => {
     if ( member.user.username == "CovER" ) {
-        member.send( "Приветствую тебя на сервере **SKY** создатель" )
+        member.send( "Приветствую тебя на сервере **SKY**, создатель." )
         member.send( "Участников на нашем сервере: " + member.guild.memberCount )
         member.send( "Название сервера - " + member.guild.name )
 
@@ -38,6 +38,10 @@ bot.on( 'message', (message)=>{
 
         if(msg === prefix + 'ICON'){
             message.channel.send( {files: [message.guild.iconURL]} )
+        }
+
+        if(msg === prefix + 'AVATAR'){
+            message.channel.send( {files: [ message.author.avatarURL.slice( 0, message.author.avatarURL.length - 10 ) ]} )
         }
         
         if(msg.startsWith(prefix + 'PURGE')){
@@ -92,7 +96,7 @@ var sin = Math.sin(Math.PI / size * 2 * i + phase);
 var int = Math.floor(sin * 127) + 128;
 var hex = int.toString(16);
 
-return hex.length === 1 ? '0'+hex : hex;
+return hex.length === 1 ? '0' + hex : hex;
 }
 
 let place = 0;
