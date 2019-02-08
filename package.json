@@ -1,0 +1,24 @@
+{
+  "name": "alfies",
+  "version": "1.0.0",
+  "description": "Alfies DiscordBot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "CovER",
+  "license": "Alfies Corporation",
+  "servers": [
+    "493495812211343361"
+  ],
+  "bot_controller": "rainbow",
+  "colors": 60,
+  "speed": 60,
+  "prefix": "!",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "discord.js": "^11.4.2",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.0"
+  }
+}
