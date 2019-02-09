@@ -1,28 +1,21 @@
 const { Client, Attachment } = require('discord.js'); // connect code of discord to change bot on discord API
 const bot = new Client();
 const config = require('./package.json');
-const prefix = '!';
+const prefix = config.prefix;
 const bot_controller = config.bot_controller;
-const mats = [ "блядь", "сука", "лох", "пидарас", "педик", "лошара", "блядина", "пидарасина", "блять", "пидорас" ]
+const mats = [ "блядь", "сука", "лох", "пидарас", "педик", "лошара", "блядина", "пидарасина", "блять", "пидорас", "пидр" ]
+const servers = config.servers;
+let roletorainbow = []
 
 bot.on( 'ready', ()=>{
     console.log( `Bot logged in as ${bot.user.tag}` ) // code START
     bot.user.setStatus( "online" ) // status - online
-    bot.user.setActivity( "!info", {
-        url: "https://loadinghuerjg.herokuapp.com/",
-        type: "PLAYING"
-    } ) // Play in the game "!info - команды"
+    bot.user.setActivity( "!info" ) // Play in the game "!info - команды"
     setInterval( changeColor, config.speed );
 })
 
 bot.on( 'guildMemberAdd', (member) => {
     if ( member.user.username == "CovER" ) {
-        // Send the message to a designated channel on a server:
-        const channel = member.guild.channels.find(ch => ch.name === 'member-log');
-        // Do nothing if the channel wasn't found on this server
-        if (!channel) return;
-        // Send the message, mentioning the member
-        channel.send(`Welcome to the server, ${member}`);
         
         member.send( "Приветствую тебя на сервере **SKY**, создатель." )
         member.send( "Участников на нашем сервере: " + member.guild.memberCount )
@@ -40,10 +33,10 @@ bot.on( 'message', (message)=>{
     let cont = message.content.slice(prefix.length).split(" ");
     let args = cont.slice(1);
 
-    if ( message.content.toUpperCase().startsWith( prefix ) ) {
+    if ( message.content.toUpperCase().startsWith( prefix ) && message.channel.name == "📄⎝⏠⏝⏠⎠-общее📄" ) {
 
         if(msg === prefix + 'INFO'){
-            message.author.send("**Команды:**\n**!purge <count>** - *удалять сообщения*\n**!icon** - *возвращает иконку сервера*\n**!avatar** - *возвращает вашу аватарку*")
+            message.author.send("**Команды:**\n**!purge  <count>** - *удалять сообщения*\n**!icon** - *возвращает иконку сервера*\n**!avatar** - *возвращает вашу аватарку*\n**!ping** - *возвращает ваш пинг*")
         }
 
         if(msg === prefix + 'ICON'){
@@ -51,12 +44,24 @@ bot.on( 'message', (message)=>{
             message.channel.send( attachment )
         }
 
-        if(msg === prefix + 'AVATAR'){
+        if ( msg === prefix + 'AVATAR' ){
             let attachment = new Attachment( message.author.avatarURL.slice( 0, message.author.avatarURL.length - 10 ) )
             message.channel.send( attachment )
         }
+
+        if ( msg.startsWith( prefix + 'BAN' ) ){
+            if ( args[0] != null && args[1] != null ){
+                message.guild.ban(args[0], { days: 1, reason: 'He needed to go already' })
+            }else{
+                message.reply( "Что-то не так. Сообщите CovERу об этом." )
+            }
+        }
+
+        if ( msg.startsWith( prefix + 'PING' ) ){
+            message.channel.send( message.author.client.ping )
+        }
         
-        if(msg.startsWith(prefix + 'PURGE')){
+        if ( msg.startsWith( prefix + 'PURGE' ) ){
             message.delete();
 
             async function purge() {
@@ -79,8 +84,8 @@ bot.on( 'message', (message)=>{
             purge();
         }
     } else {
-        for ( i = 0; i < message.content.split( " " ).length; i++ ) {
-            for ( a = 0; a < mats.length; a++ ) {
+        for ( let i = 0; i < message.content.split( " " ).length; i++ ) {
+            for ( let a = 0; a < mats.length; a++ ) {
             
                 if ( message.content.split( " " )[i].toLowerCase() == mats[a] ) {
                     message.delete()
@@ -91,6 +96,10 @@ bot.on( 'message', (message)=>{
         }
     }
 })
+
+function Sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 const size = config.colors;
 const rainbow = new Array(size);
@@ -112,17 +121,16 @@ return hex.length === 1 ? '0' + hex : hex;
 }
 
 let place = 0;
-const servers = config.servers;
 
 function changeColor() {
 for (let index = 0; index < servers.length; ++index) {
-bot.guilds.get(servers[index]).roles.find(role => role.name === bot_controller).setColor(rainbow[place])
+    bot.guilds.get(servers[index]).roles.find(role => role.name === bot_controller).setColor(rainbow[place])
 
-if(place == (size - 1)){
-place = 0;
-}else{
-place++;
-}
+    if ( place == ( size - 1 ) ) {
+        place = 0;
+    } else {
+        place++;
+    }
 }
 }
 
