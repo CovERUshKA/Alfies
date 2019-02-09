@@ -87,6 +87,7 @@ bot.on( 'message', (message)=>{
             for ( let a = 0; a < mats.length; a++ ) {
             
                 if ( message.content.split( " " )[i].toLowerCase() == mats[a] ) {
+                    console.log( message.content ) 
                     message.delete()
                     message.reply( "ай-ай-ай такое писать." )
                     return;
