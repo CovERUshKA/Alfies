@@ -3,7 +3,7 @@ const bot = new Client();
 const config = require('./package.json');
 const prefix = config.prefix;
 const bot_controller = config.bot_controller;
-const mats = [ "блядь", "сука", "лох", "пидарас", "педик", "лошара", "блядина", "пидарасина", "блять", "пидорас", "пидр" ]
+const mats = [ "блядь", "сука", "лох", "пидарас", "педик", "лошара", "блядина", "пидарасина", "блять", "пидорас", "пидр", "уёбок" ]
 const servers = config.servers;
 
 bot.on( 'ready', ()=>{
