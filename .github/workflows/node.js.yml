@@ -27,4 +27,4 @@ jobs:
     - run: npm install
     - run: npm install discord.js
     - run: npm run build --if-present
-    - run: npm test index.js
+    - run: npm test
