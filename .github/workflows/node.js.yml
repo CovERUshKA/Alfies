@@ -24,7 +24,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-      env: # Environment variable
+      env:
         TOKEN: ${{ secrets.TOKEN }}
         TEST: "TESTING"
       
