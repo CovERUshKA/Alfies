@@ -4,7 +4,7 @@
   "description": "Alfies DiscordBot",
   "main": "index.js",
   "scripts": {
-    "test": "node ."
+    "test": "node . --trace-deprecation"
   },
   "author": "CovER",
   "license": "Alfies Corporation",
