@@ -13,7 +13,6 @@ bot.on( 'ready', ()=>{
     setInterval( changeColor, config.speed );
 })
 
-console.log( `HERE` )
 console.log( process.env.TOKEN )
 console.log( process.env.TEST )
 console.log( process.env.GITHUB_ACTION )
