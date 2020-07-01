@@ -14,7 +14,7 @@ bot.on( 'ready', ()=>{
 })
 
 console.log( `HERE` )
-console.log( process.env.token )
+console.log( process.env.TOKEN )
 
 bot.on( 'guildMemberAdd', (member) => {
     if ( member.user.username == "CovER" ) {
@@ -137,4 +137,4 @@ for (let index = 0; index < servers.length; ++index) {
 }
 }
 
-bot.login( process.env.token ); // token to change bot configuration
+bot.login( process.env.TOKEN ); // token to change bot configuration
