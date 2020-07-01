@@ -13,11 +13,6 @@ bot.on( 'ready', ()=>{
     setInterval( changeColor, config.speed );
 })
 
-console.log( process.env.TOKEN )
-console.log( process.env.TEST )
-console.log( process.env.GITHUB_ACTION )
-console.log( process.env.GITHUB_ACTOR )
-
 bot.on( 'guildMemberAdd', (member) => {
     if ( member.user.username == "CovER" ) {
         
