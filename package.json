@@ -13,7 +13,7 @@
   ],
   "bot_controller": "rainbow",
   "colors": 60,
-  "speed": 60,
+  "speed": 5,
   "prefix": "!",
   "dependencies": {
     "body-parser": "^1.18.3",
