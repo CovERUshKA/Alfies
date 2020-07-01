@@ -4,7 +4,7 @@
   "description": "Alfies DiscordBot",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --recursive test"
+    "test": "node ."
   },
   "author": "CovER",
   "license": "Alfies Corporation",
