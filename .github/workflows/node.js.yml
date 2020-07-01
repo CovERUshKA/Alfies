@@ -26,7 +26,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
       env: # Environment variable
         TOKEN: ${{ secrets.TOKEN }}
-        TEST: TESTING
+        TEST: "TESTING"
       
     - run: npm install
     - run: npm install express-handlebars
