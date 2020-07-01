@@ -17,9 +17,6 @@ jobs:
     strategy:
       matrix:
         node-version: [10.x, 12.x, 14.x]
-        
-    env: # Or as an environment variable
-      super_secret: ${{ secrets.SuperSecret }}
 
     steps:
     - uses: actions/checkout@v2
@@ -27,6 +24,9 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+      env: # Or as an environment variable
+        super_secret: ${{ secrets.SuperSecret }}
+      
     - run: npm install
     - run: npm install express-handlebars
     - run: npm install body-parser
