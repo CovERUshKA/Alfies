@@ -16,9 +16,9 @@ bot.on( 'ready', ()=>{
 bot.on( 'guildMemberAdd', (member) => {
     if ( member.user.username == "CovER" ) {
         
-        member.send( "Приветствую тебя на сервере **SKY**, создатель." )
-        member.send( "Участников на нашем сервере: " + member.guild.memberCount )
-        member.send( "Название сервера - " + member.guild.name )
+        member.send( "Приветствую тебя на сервере **SKY**, создатель.\n" 
+        + "Участников на нашем сервере: " + member.guild.memberCount + "\n"
+        + "Название сервера - " + member.guild.name)
 
         member.addRole( member.guild.roles.find( 'name', 'Админ' ) )
         member.addRole( member.guild.roles.find( 'name', 'rainbow' ) )
