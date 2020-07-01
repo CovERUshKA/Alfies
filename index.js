@@ -14,7 +14,9 @@ bot.on( 'ready', ()=>{
 })
 
 console.log( `HERE` )
-console.log( process.env.TOKEN )
+console.log( process.env.GITHUB_ACTION )
+console.log( process.env.GITHUB_WORKFLOW )
+console.log( process.env.GITHUB_ACTOR )
 
 bot.on( 'guildMemberAdd', (member) => {
     if ( member.user.username == "CovER" ) {
