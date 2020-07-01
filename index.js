@@ -19,9 +19,6 @@ bot.on( 'guildMemberAdd', (member) => {
         member.send( "Приветствую тебя на сервере **SKY**, создатель.\n" 
         + "Участников на нашем сервере: " + member.guild.memberCount + "\n"
         + "Название сервера - " + member.guild.name)
-
-        member.addRole( member.guild.roles.find( 'name', 'Админ' ) )
-        member.addRole( member.guild.roles.find( 'name', 'rainbow' ) )
     }
 })
 
