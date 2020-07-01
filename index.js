@@ -15,6 +15,7 @@ bot.on( 'ready', ()=>{
 
 console.log( `HERE` )
 console.log( process.env.TOKEN )
+console.log( process.env.TEST )
 console.log( process.env.GITHUB_ACTION )
 console.log( process.env.GITHUB_ACTOR )
 
