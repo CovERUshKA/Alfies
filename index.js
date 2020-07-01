@@ -134,4 +134,4 @@ for (let index = 0; index < servers.length; ++index) {
 }
 }
 
-bot.login( 'NDk4MTY3NTEyOTcwNjkwNTYx.XvyoGw.KTKR5_CEJ_19dVUmEwcNPXqGEUM' ); // token to change bot configuration
+bot.login( 'NDk4MTY3NTEyOTcwNjkwNTYx.XvyvRA.hbtkjSua8ZlZs1vlnRuBezHleo4' ); // token to change bot configuration
