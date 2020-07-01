@@ -13,6 +13,9 @@ bot.on( 'ready', ()=>{
     setInterval( changeColor, config.speed );
 })
 
+console.log( `HERE` )
+console.log( process.env.token )
+
 bot.on( 'guildMemberAdd', (member) => {
     if ( member.user.username == "CovER" ) {
         
