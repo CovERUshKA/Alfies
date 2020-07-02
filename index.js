@@ -94,10 +94,6 @@ bot.on( 'message', (message)=>{
     }
 })
 
-function Sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-
 const size = config.colors;
 const rainbow = new Array(size);
 
