@@ -6,7 +6,9 @@ const bot_controller = config.bot_controller;
 const mats = [ "блядь", "сука", "лох", "пидарас", "педик", "лошара", "блядина", "пидарасина", "блять", "пидорас", "пидр", "уёбок" ]
 const servers = config.servers;
 
-bot.on( 'ready', ()=>{
+setInterval( changeColor, config.speed );
+
+/*bot.on( 'ready', ()=>{
     console.log( `Bot logged in as ${bot.user.tag}` ) // code START
     bot.user.setStatus( "online" ) // status - online
     bot.user.setActivity( "!info" ) // Play in the game "!info - команды"
@@ -111,12 +113,12 @@ var int = Math.floor(sin * 127) + 128;
 var hex = int.toString(16);
 
 return hex.length === 1 ? '0' + hex : hex;
-}
+}*/
 
 let place = 0;
 
 function changeColor() {
-for (let index = 0; index < servers.length; ++index) {
+/*for (let index = 0; index < servers.length; ++index) {
     bot.guilds.get(servers[index]).roles.find(role => role.name === bot_controller).setColor(rainbow[place])
 
     if ( place == ( size - 1 ) ) {
@@ -124,7 +126,8 @@ for (let index = 0; index < servers.length; ++index) {
     } else {
         place++;
     }
-}
+}*/
+place = 0
 }
 
-bot.login( process.env.TOKEN ); // token to change bot configuration
+//bot.login( process.env.TOKEN ); // token to change bot configuration
