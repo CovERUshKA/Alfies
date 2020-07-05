@@ -1,4 +1,4 @@
-# Alfies - Discord bot
+# Alfies
 
 This is code of my Discord Bot "Alfies"
 
