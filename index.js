@@ -23,9 +23,9 @@ bot.on( 'guildMemberAdd', (member) => {
 })
 
 bot.on( 'message', (message)=>{
-    var member = message.member;
-    var author = message.author; // author of message
-    var msg = message.content.toUpperCase();
+    let member = message.member;
+    let author = message.author; // author of message
+    let msg = message.content.toUpperCase();
     let cont = message.content.slice(prefix.length).split(" ");
     let args = cont.slice(1);
 
@@ -97,18 +97,18 @@ bot.on( 'message', (message)=>{
 const size = config.colors;
 const rainbow = new Array(size);
 
-for (var i=0; i<size; i++) {
-var red = sin_to_hex(i, 0 * Math.PI * 2/3); // 0 deg
-var blue = sin_to_hex(i, 1 * Math.PI * 2/3); // 120 deg
-var green = sin_to_hex(i, 2 * Math.PI * 2/3); // 240 deg
+for (let i=0; i<size; i++) {
+let red = sin_to_hex(i, 0 * Math.PI * 2/3); // 0 deg
+let blue = sin_to_hex(i, 1 * Math.PI * 2/3); // 120 deg
+let green = sin_to_hex(i, 2 * Math.PI * 2/3); // 240 deg
 
 rainbow[i] = '#'+ red + green + blue;
 }
 
 function sin_to_hex(i, phase) {
-var sin = Math.sin(Math.PI / size * 2 * i + phase);
-var int = Math.floor(sin * 127) + 128;
-var hex = int.toString(16);
+let sin = Math.sin(Math.PI / size * 2 * i + phase);
+let int = Math.floor(sin * 127) + 128;
+let hex = int.toString(16);
 
 return hex.length === 1 ? '0' + hex : hex;
 }
