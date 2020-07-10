@@ -14,7 +14,7 @@ bot.on( 'ready', ()=>{
 })
 
 bot.on( 'guildMemberAdd', (member) => {
-    member.send( "Приветствую тебя на сервере ** + member.guild.name + **)
+    member.send( "Приветствую тебя на сервере **" + member.guild.name + "**")
 })
 
 bot.on( 'message', (message)=>{
