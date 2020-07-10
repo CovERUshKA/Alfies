@@ -119,7 +119,7 @@ if ( place == ( size - 1 ) ) {
 }
 
 for (let index = 0; index < servers.length; ++index) {
-    bot.guilds.get(servers[index]).roles.find(role => role.name === bot_controller).setColor("#FFFFFF")
+    bot.guilds.get(servers[index]).roles.find(role => role.name === bot_controller).setColor(rainbow[index])
 }
 }
 
