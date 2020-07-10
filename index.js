@@ -14,12 +14,7 @@ bot.on( 'ready', ()=>{
 })
 
 bot.on( 'guildMemberAdd', (member) => {
-    if ( member.user.username == "CovER" ) {
-        
-        member.send( "Приветствую тебя на сервере **SKY**, создатель.\n" 
-        + "Участников на нашем сервере: " + member.guild.memberCount + "\n"
-        + "Название сервера - " + member.guild.name)
-    }
+    member.send( "Приветствую тебя на сервере ** + member.guild.name + **)
 })
 
 bot.on( 'message', (message)=>{
